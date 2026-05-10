@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XSS PLAYGROUND</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>XSS PLAYGROUND</h1>
+  <p class="sub">Payloadları search barlara yazabilir ya da panelden seçebilirsiniz. Sol bar innerHTML çalıştırır, sağ bar textContent güvende tutar</p>
+
+  <!-- iki bar -->
+  <div class="bars">
+    <div class="bar-box bad">
+      <div class="bar-title">vulnerable</div>
+      <div class="bar-method">innerHTML = input</div>
+      <div class="row">
+        <input type="text" id="bad-input" placeholder="payload buraya gelecek" />
+        <button class="run" id="bad-run">ara</button>
+      </div>
+      <div class="result" id="bad-result">—</div>
+    </div>
+
+    <div class="bar-box good">
+      <div class="bar-title">safe</div>
+      <div class="bar-method">textContent = input</div>
+      <div class="row">
+        <input type="text" id="good-input" placeholder="payload buraya gelecek" />
+        <button class="run" id="good-run">ara</button>
+      </div>
+      <div class="result" id="good-result">—</div>
+    </div>
+  </div>
+
+  <!-- custom + side panel -->
+  <div class="workspace">
+
+    <div class="custom-area">
+      <div class="area-title">payload gir</div>
+      <textarea id="custom-payload" placeholder="iki barada girilmek istenilen custom payloadunuzu buradan girebilirsiniz"></textarea>
+      <button class="apply-btn" id="apply-btn">uygula → bara aktar</button>
+    </div>
+
+    <div class="side-panel">
+      <div class="area-title">hızlı seçim </div>
+      <div class="quick-list" id="quick-list"></div>
+    </div>
+
+  </div>
+
+  <div class="risk-note" id="risk-note"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
